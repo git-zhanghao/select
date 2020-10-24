@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>自主评测</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./msui/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+	<link rel="stylesheet" href="css/z_style.css">
+	<script src="js/common.js"></script>
+	
+	<style>
+		.picker-modal .picker-modal-inner{
+			width: 100%;
+		}
+		.picker-item{
+			height: 1.6rem !important;
+			line-height: 1.6rem !important;
+			font-size: .72rem !important;
+		}
+		.picker-center-highlight{
+			height: 1.6rem;
+			line-height: 1.6rem;
+			margin-top: -0.8rem;
+		}
+		.picker-center-highlight:after{
+			height: .1rem;
+		}
+		.picker-center-highlight:before{
+			height: .1rem;
+		}
+	</style>
+
+  </head>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+			<!-- 头部 -->
+            <header class="bar bar-nav">
+                <button class="button button-link button-nav pull-left">
+                    <a href="" class="icon icon-left header-left"></a>
+                </button>
+                <h1 class="title header-title">自主评测</h1>
+            </header>
+			
+            <!-- 内容 -->
+            <div class="content">
+				<div class="test-mod">
+					<div class="test-info">
+						<div class="test-user-info">
+							<img src="images/img.jpeg" id="headPic">
+							<span id="fullName">刘若英</span>
+						</div>
+						<div class="test-table">
+							  <table class="table margin-bottom30">
+								<tbody>
+									<tr>
+										<td class="text-center">评测专业</td>
+										<td class="text-center">
+											<div class="select-bar">
+												<div class="select">
+													<input type="text" placeholder="选择工种" id="picker-work" readonly="">
+													<span class="icon icon-caret icon-sel"></span>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="text-center">考试时间</td>
+										<td class="text-center">
+											<div class="select-bar">
+												<div class="select">
+													<input type="text" placeholder="请输入时间" >
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							  </table>
+							  
+							  <table class="table">
+									<thead>
+										<tr>
+											<th class="text-center">题型</th>
+											<th class="text-center">题量</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="text-center">单选</td>
+											<td class="text-center">
+												<div class="select-bar">
+													<div class="select">
+														<input type="text" placeholder="请输入分值" >
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="text-center">多选</td>
+											<td class="text-center">
+												<div class="select-bar">
+													<div class="select">
+														<input type="text" placeholder="请输入分值" >
+													</div>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+							  </table>
+						</div>
+					</div>
+					<div class="exam-btn-group">
+						<p><a href="#" class="begin-btn confirm-ok">优先考错题</a></p>
+						<p><a href="#" class="begin-btn confirm-ok">优先考未做题</a></p>
+						<p><a href="#" class="begin-btn confirm-ok">优先考收藏题</a></p>
+						<p><a href="#" class="begin-btn confirm-ok">全真模拟</a></p>
+					</div>
+					
+				</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+	
+	 <script>
+		 $.init();
+		 
+		$(document).on('click','.confirm-ok', function () {
+			  $.confirm('现在开始测评吗?', function () {
+				 
+			  });
+		});
+		
+		//专业工种
+		$("#picker-work").picker({
+		  toolbarTemplate: '<header class="bar bar-nav bar-h90">\
+		  <button class="button button-link pull-right close-picker">确定</button>\
+		  <h1 class="title font-36">请选择工种</h1>\
+		  </header>',
+		  value: '请选择工种',
+		  cols: [
+			{
+			  textAlign: 'center',
+			  values: ['程序员', '设计师', '插画师', '会计', '工程师', '产品经理']
+			}
+		  ]
+		});
+	</script>
+  </body>
+</html>

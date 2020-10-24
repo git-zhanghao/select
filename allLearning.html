@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>全员学习</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./msui/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/z_style.css">
+	<script src="js/swiper.min.js"></script>
+	<script src="js/common.js"></script>
+	
+	
+  </head>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+			<!-- 头部 -->
+            <header class="bar bar-nav menu-bar">
+				<div class="menu-area">
+					<div class="menu">
+						<div id="header" class="swiper-container-horizontal swiper-container-free-mode">
+						  <div class="swiper-wrapper">
+							<div class="swiper-slide swiper-slide-active active">推荐</div>
+							<div class="swiper-slide swiper-slide-next">综合</div>
+							<div class="swiper-slide">健康</div>
+							<div class="swiper-slide">文化</div>
+							<div class="swiper-slide">实践</div>
+							<div class="swiper-slide">人物</div>
+							<div class="swiper-slide">国际</div>
+							<div class="swiper-slide">法纪</div>
+							<div class="swiper-slide">十九大</div>
+							<div class="swiper-slide">时评</div>
+							<div class="swiper-slide">军事</div>
+						  </div>
+						</div>
+					</div>
+					<a href="" class="sort-btn">分类</a>
+				</div>
+				
+				<div class="search-area">
+					<div class="search-bar">
+						<div class="searchbar">
+							<div class="search-input">
+								<form action="">
+									<label class="icon icon-search" for="search"></label>
+									<input type="search" id='search' placeholder='输入关键字...'/>
+								</form>
+							</div>
+						</div>
+					</div>
+					
+					<div class="other">
+						<a href="" class="icon icon-clock"></a>
+						<div class="integral">
+							<span class="name">积分</span>
+							<span class="num">2999</span>
+						</div>
+						<a href="" class="my-btn">我的</a>
+					</div>
+				</div>
+            </header>
+			
+            <!-- 内容 -->
+		    <div class="content cont-top">
+				<!-- Swiper -->
+				<div class="swiper-container swiper-h10rem">
+					<div class="swiper-wrapper">
+					  <div class="swiper-slide" style="background: url(images/img.jpeg) center no-repeat; background-size: 100%;"></div>
+					  <div class="swiper-slide" style="background: url(images/img.jpeg) center no-repeat; background-size: 100%;"></div>
+					  <div class="swiper-slide" style="background: url(images/img.jpeg) center no-repeat; background-size: 100%;"></div>
+					</div>
+					<!-- Add Pagination -->
+					<div class="swiper-pagination"></div>
+				</div>
+				
+				<ul class="news-item">
+					<li>
+						<a href="">《求是》杂志发表习近平书记重要文章《在深入推动长江经济带发展座谈会上的讲话》</a>
+						<span>2019-08-31</span>
+					</li>
+					<li>
+						<a href="">《求是》杂志发表习近平书记重要文章《在深入推动长江经济带发展座谈会上的讲话》</a>
+						<span>2019-08-31</span>
+					</li>
+					<li>
+						<a href="">《求是》杂志发表习近平书记重要文章《在深入推动长江经济带发展座谈会上的讲话》</a>
+						<span>2019-08-31</span>
+					</li>
+				</ul>
+				
+		    </div>
+			
+			<nav class="bar bar-tab">
+			  <a class="tab-item external" href="#">
+				<span class="icon icon-friends"></span>
+				<span class="tab-label">专业学习</span>
+			  </a>
+			  <a class="tab-item external" href="#">
+				<span class="icon iconfont icon-ziyuan"></span>
+				<span class="tab-label">视听学习</span>
+			  </a>
+			  <a class="tab-item external active" href="#">
+				<span class="icon iconfont icon-xuexi"></span>
+				<span class="tab-label">全员学习</span>
+			  </a>
+			  <a class="tab-item external" href="#">
+				<span class="icon icon-me"></span>
+				<span class="tab-label">我的</span>
+			  </a>
+			</nav>
+			
+			
+
+        </div>
+    </div>
+	
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script> -->
+	
+	 <script>
+		$.init();
+		//顶部导航菜单
+		var navSwiper = new Swiper('#header', {
+			freeMode: true,
+			slidesPerView: 'auto',
+			freeModeSticky: true,
+		});
+		//轮播图
+		var swiper = new Swiper('.swiper-container', {
+			 autoplay:true,
+		  pagination: {
+			el: '.swiper-pagination',
+			type: 'bullets',
+		  }
+		});
+		
+		
+		//点击顶部导航菜单
+		$(document).on('click','#header .swiper-slide',function(){
+			$(this).addClass('active').siblings().removeClass('active');
+			//$('#contTop').html('替换contTop里的所有内容')
+
+			//有轮播加这段代码
+			new Swiper('.swiper-container', {
+				autoplay:true,
+				pagination: {
+					el: '.swiper-pagination',
+					type: 'bullets',
+				}
+			})
+		})
+	
+	</script>
+  </body>
+</html>

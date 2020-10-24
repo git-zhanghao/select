@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>考试</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./msui/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+	<link rel="stylesheet" href="css/z_style.css">
+	<script src="js/common.js"></script>
+
+  </head>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+			<!-- 头部 -->
+            <header class="bar bar-nav">
+                <button class="button button-link button-nav pull-left">
+                    <a href="" class="icon icon-left header-left"></a>
+                </button>
+                <h1 class="title header-title">考试</h1>
+            </header>
+			
+            <!-- 内容 -->
+            <div class="content">
+				<div class="test-mod">
+					<div class="test-info">
+						<div class="test-user-info">
+							<img src="images/img.jpeg" id="headPic">
+							<span id="fullName">刘若英</span>
+						</div>
+						<h5 class="test-time">本场考试20分钟</h5>
+						<h5 class="exam-point">考试满分120分</h5>
+						<div class="test-table">
+							  <table class="table">
+								<thead>
+									<tr>
+										<th class="text-center">题型</th>
+										<th class="text-center">题量</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="text-center">单选</td>
+										<td class="text-center" id="single"></td>
+									</tr>
+									<tr>
+										<td class="text-center">多选</td>
+										<td class="text-center" id="multiple"></td>
+									</tr>
+									<tr>
+										<td class="text-center">判断</td>
+										<td class="text-center" id="judge"></td>
+									</tr>
+									<tr>
+										<td class="text-center">简答</td>
+										<td class="text-center" id="simple"></td>
+									</tr>
+									<tr>
+										<td class="text-center">论述</td>
+										<td class="text-center" id="discuss"></td>
+									</tr>
+									<tr>
+										<td class="text-center">纠错</td>
+										<td class="text-center" id="analysis"></td>
+									</tr>
+								</tbody>
+							  </table>
+						</div>
+					</div>
+					<p><a href="#" class="begin-btn confirm-ok">开始考试</a></p>
+				</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+	
+	 <script>
+		 $.init();
+		 
+		$(document).on('click','.confirm-ok', function () {
+			  $.confirm('现在开始考试吗?', function () {
+				 
+			  });
+		});
+	</script>
+  </body>
+</html>

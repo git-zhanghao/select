@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>学习攻略</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./msui/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="css/l_style.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1441932_r6ym5lh61j.css">
+	<script src="js/common.js"></script>
+
+  </head>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+			<!-- 头部 -->
+            <header class="bar bar-nav">
+                <button class="button button-link button-nav pull-left">
+                    <a href="javascript:;" class="icon icon-left header-left" external></a>
+                </button>
+                <a href="IntegralDetails.html" class="button button-link button-nav pull-right header-right" external>积分明细</a>
+                <h1 class="title header-title">学习攻略</h1>
+            </header>
+			
+            <!-- 内容 -->
+            <div class="content learning-strategy">
+                <!-- 个人积分 -->
+				<div class="integral-show">
+                    <div>我的积分</div>
+                    <strong>2019</strong>
+                    <a href="javascript:;" class="description">积分说明></a>
+                    <a href="javascript:;" class="exchange" external>
+                        <span class="iconfont icon-gift"></span>
+                        <p>强企商城兑换福利</p>
+                        <span class="icon icon-right href-right"></span>
+                    </a>
+                </div>
+
+                <!-- 积分规则 -->
+                <div class="rule">
+                    <div class="rule-header">
+                        <h6>积分规则</h6>
+                        <p>今日已累计<span>3积分</span></p>
+                    </div>
+                    <ul class="integral-list">
+                        <li>
+                            <div class="integral-left">
+                                <h6>签到获得积分+<span>0.2</span>分</h6>
+                                <p>每日首次登陆</p>
+                                <div class="integral-ratio">
+                                    <div class="progress"><span style="width:100%"></span></div>
+                                    <p>已获得0.2分/每日上限0.2</p>
+                                </div>
+                            </div>
+                            <p><a href="javascript:;" class="button button-fill button-warning">已完成</a></p>
+                        </li>
+                        <li>
+                            <div class="integral-left">
+                                <h6>签到获得积分+<span>0.2</span>分</h6>
+                                <p>每日首次登陆</p>
+                                <div class="integral-ratio">
+                                    <div class="progress"><span style="width:40%"></span></div>
+                                    <p>已获得0.2分/每日上限0.2</p>
+                                </div>
+                            </div>
+                            <p><a href="#" class="button button-fill" external>去看看</a></p>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+	
+	 <script>
+		 $.init();
+         $(function(){
+            $(document).on('click','.description',function () {
+                $.alert(
+                    '<div class="l-get-rule"><h6>积分规则</h6>'
+                    +'<p class="rule-details">1.登录获得0.1积分；每日上限为0.1；<br/>'
+                    +'2.有效阅读一篇新闻、文章获得0.1积分；每日上限为1积分；<br/>'
+                    +'3.有效收听/观看一个视频获得0.1积分；每日上限为1积分；<br/>'
+                    +'4.答对一道获得0.2积分，答错一道获得0.1积分；每日答对上限为2积分，每日答错上限为1积分；<br/>'
+                    +'5.收藏一次获得0.1积分，每日上限为1分；<br/>'
+                    +'6.分享一道题获得0.1积分，每日上限为1积分；'
+                    +'</p></div>'
+                );
+            });
+
+        })
+	</script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>文章详情</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./msui/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+	<link rel="stylesheet" href="css/z_style.css">
+	<script src="js/common.js"></script>
+
+  </head>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+			<!-- 头部 -->
+            <header class="bar bar-nav">
+                <button class="button button-link button-nav pull-left">
+                    <a href="shoppingMall.html" class="icon icon-left header-left"></a>
+                </button>
+				<button class="button button-link button-nav pull-right header-right">
+					<span class="icon icon-star"></span>
+				</button>
+                <h1 class="title header-title">
+					<img src="images/logo.jpg" class="logo" >
+				</h1>
+            </header>
+			
+            <!-- 内容 -->
+      <div class="content">
+		 <header class="article-header">
+			 <h5>《求是》杂志发表习近平书记重要文章《在深入推动长江经济带发展座谈会上的讲话》</h5>
+			 <div class="author-info">
+				 <span>来源：新华社</span>
+				 <span>2019-08-31</span>
+			 </div>
+		 </header> 
+		 <section class="article-cont">
+			 <p>在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话</p>
+			 <img src="images/img02.jpeg" alt="">
+			 <p>在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话</p>
+			 <p>在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话</p>
+			 <img src="images/img02.jpeg" alt="">
+			 <p>在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话</p>
+			 <p>在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话</p>
+			 <img src="images/img02.jpeg" alt="">
+			 <p>在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话在深入推动长江经济带发展座谈会上的讲话</p>
+		 </section>
+      </div>
+
+        </div>
+    </div>
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+	
+	 <script>
+		 $.init();
+		 
+		 //收藏
+		 $('.bar-nav').on('click','.icon-star',function(){
+			 if($(this).hasClass('active')){
+				 $(this).removeClass('active');
+			 }else{
+				 $(this).addClass('active');
+			 }
+		 });
+		 
+		 //文章内容滚动隐藏logo
+		 $('.content').scroll(function(){
+			var scrollTop = $(this).scrollTop();
+			if(scrollTop > 110){
+				$('.logo').hide();
+			}else{
+				$('.logo').show();
+			}
+		 });
+	</script>
+  </body>
+</html>

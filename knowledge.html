@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>知识库</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script>
+        function setRem(){
+            //动态设置像素比
+            var oPixelRatio = 1;
+            document.write('<meta name="viewport" content="width=device-width,initial-scale='+oPixelRatio+',minimum-scale='+oPixelRatio+',maximum-scale='+oPixelRatio+',user-scalable=no" />');
+            
+            //调用setSize函数，自动刷新
+            setSize();
+            window.addEventListener("resize", setSize, false);
+            window.addEventListener("orientationchange", setSize, false);
+            function setSize(){
+                //获取字体大小
+                var html = document.getElementsByTagName('html')[0];
+                var pageWidth = html.getBoundingClientRect().width;
+                if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                    html.style.fontSize = pageWidth / 15 +"px";
+                }else{
+                    html.style.fontSize = "50px";
+                }
+            }
+        }
+        setRem();
+    </script>
+    <link rel="stylesheet" href="./msui/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1441932_5r8ys7bgdpl.css">
+	<link rel="stylesheet" href="css/l_style.css">
+    <!-- <script src="js/common.js"></script> -->
+
+  </head>
+    <body >
+        <div class="page-group">
+           <div class="page">
+              <!-- 头部 -->
+                <header class="bar bar-nav">
+                    <button class="button button-link button-nav pull-left">
+                        <a href="" class="icon icon-left header-left"></a>
+                    </button>
+                    <h1 class="title header-title">知识库</h1>
+                </header>
+                <div class="knowledge collection-content">
+                    <div class="serach-header">
+                        <div class="searchbar row knowledge-searchbar">
+                            <div class="search-input col-75">
+                                <label class="icon icon-search" for="search"></label>
+                                <input type="search" id='search' placeholder='输入关键字...'/>
+                            </div>
+                            <a class="button button-fill button-primary col-25" id="searchBtn">搜索</a>
+                        </div>
+                        <button class="search-btn" id="creatBtn">筛选</button>
+                    </div>
+                    <div id="knowledge" style="top:calc( -0.62rem + 12px);" class="knowledge-list content infinite-scroll pull-to-refresh-content infinite-scroll-bottom" >
+                            <div class="pull-to-refresh-layer">
+                                <div class="preloader"></div>
+                                <div class="pull-to-refresh-arrow"></div>
+                            </div>
+                            <div class="list-block" style="margin:0 auto;">
+                                <ul class="list-container">
+                                </ul>
+                            </div>
+                            <div class="infinite-scroll-preloader">
+                                <div class="preloader">
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+                
+
+                
+            
+              
+
+              </div>
+            </div>
+    
+            <div class="side-page" id="sidePage">
+                <span class="side-bg" id="sideBg"></span>
+                <div class="side-cont">
+                    <ul class="addSubjectCondition">
+                        <li>
+                            <dl class="subject">
+                                <dt>专业工种<i class="icon icon-down" id="toggle_pro"></i></dt>
+                                <dd>
+                                    <div class="js-toggle" id="pro">
+                                    </div>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl class="subject">
+                                <dt>题库<i class="icon icon-down" id="toggle_qd"></i></dt>
+                                <dd>
+                                    <div class="js-toggle" id="qd">
+                                    </div>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl class="subject">
+                                <dt>练习类型<i class="icon icon-down" id="toggle_lxType"></i></dt>
+                                <dd>
+                                    <div class="js-toggle" id="lxType">
+                                    </div>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl class="subject">
+                                <dt>发布时间</dt>
+                                <dd>
+                                    <div class="flex-start" id="selectDate">
+                                        <span class="padding-18" id="day">今天</span>
+                                        <span class="padding-18" id="week">本周</span>
+                                        <span class="padding-18" id="month">本月</span>
+                                        <span class="padding-18" id="quarter">本季</span>
+                                        <span class="padding-18" id="year">本年</span>
+                                    </div>
+                                </dd>
+                            </dl>
+                        </li>
+                    </ul>
+                    <div class="practice-group">
+                        <input type="text" id='startDate' class="form_datetime" placeholder="开始时间"/>
+                        <input type="text" id='endDate' class="form_datetime" placeholder="结束时间"/>
+                        <!-- <input id="startDate" type="text" value="" readonly="" class="form_datetime" placeholder="开始时间">
+                        <input id="endDate" type="text" value="" readonly="" class="form_datetime" placeholder="结束时间"> -->
+                    </div>
+                    <div class="issue-dialog-submit">
+                        <button class="reset" id="reset">重置</button>
+                        <button class="sure" id="submit">确定</button>
+                    </div>
+                </div>
+            </div>
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script> -->
+    <script type='text/javascript' src='js/sm.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+	 <script>
+		function pitch(obj) {
+            if($(obj).hasClass('active')){
+                $(obj).removeClass('active');
+            }else{
+                $(obj).addClass('active');
+            }
+        }
+        function toggle(obj) {
+            if($(obj).hasClass('toggle')){
+                $(obj).removeClass('toggle');
+                $(obj).parents('.subject').find('.js-toggle').css('height','1.8rem');
+                $(obj).css('transform','rotate(180deg)');
+            }else{
+                $(obj).addClass('toggle');
+                $(obj).parents('.subject').find('.js-toggle').css('height','auto');
+                $(obj).css('transform','rotate(0)');
+            }
+        }
+    </script>
+    <script>
+$(function() {
+    var startDate = $("#startDate").calendar({
+      onChange: function(p, v, d) {
+        // console.log(p, v, d);
+      }
+    });
+    var endDate = $("#endDate").calendar({
+      onChange: function(p, v, d) {
+        // console.log(p, v, d);
+      }
+    });
+    
+
+    var creatBtn = $('#creatBtn');
+    var sidePage = $('#sidePage');
+    var sideBg = $('#sideBg');
+    // 移入、移出
+    creatBtn.on('click',function(){
+        if(!sidePage.hasClass('side-left-move')){
+            sidePage.addClass('side-left-move')
+        }
+    });
+    sideBg.on('click',closeSide);
+    function closeSide(){
+        if(sidePage.hasClass('side-left-move')){
+            sidePage.removeClass('side-left-move')
+        }
+    }
+    $('#reset').on('click',function(){
+        $('.padding-18').removeClass('active');
+        $('#startDate').val('');
+        $('#endDate').val('');
+        // closeSide();
+    });
+    $('#submit').on('click',function(){
+       /*  closeSide();
+        selectWrong(page=1); */
+        $('.padding-18').removeClass('active');
+        $('#startDate').val('');
+        $('#endDate').val('');
+    });
+    //选项
+    $('#selectDate').on('click','span',function(){
+        $('#selectDate').find(".padding-18").removeClass('active');
+        pitch(this);
+    });
+    //下拉更多
+	$('#toggle_pro').on('click',function(){
+		toggle(this);
+	});
+	$('#toggle_qd').on('click',function(){
+		toggle(this);
+	});
+	$('#toggle_lxType').on('click',function(){
+		toggle(this);
+    });
+    
+    // 上拉加载
+    pulling({
+        tabId: 'knowledge'
+    });
+
+    $('#searchBtn').on('click',function(){
+        pulling({
+            tabId: 'knowledge'
+        });
+    })
+
+    function pulling(obj) {
+        var tabId = obj.tabId;
+        var oParent = $('#'+tabId);
+        var oPar = document.getElementById(tabId);
+
+        //多个标签页下的无限滚动
+        var loading = false;
+      
+      var pageNum = 1;
+      // 最多可加载多少页
+      var maxNum = 0;
+
+      var isHasData = addItems(pageNum) // 初始化第一页数据
+       if(isHasData){
+            $('#knowledge').show();
+       }else{
+            $('#knowledge').hide();
+            return;
+       }
+      //绑定过就不再绑定事件了
+      if(oPar.flag){
+        return ;
+    }
+    oPar.flag = true;
+      // 获取数据
+      function getData(number){
+          //请求后获取总共多少页,用同步
+          maxNum = 3;
+            // 生成新条目的HTML
+            var html = '';
+            
+            // 加载后的数据得超过一屏幕，不然就没有加载，建议一页15条以上数据
+            for (var i = 0; i < 10; i++) {
+            html += '<li class="item-content">'
+                        +'<a href="javascript:;">'
+                            +'<div class="file-img"><img src="./images/icon/icon_docx.png" alt=""></div>'
+                            +'<div class="file-info">'
+                                +'<p class="file-name">'+i+'</p>' 
+                                +'<div class="file-operation">'
+                                    +'<span class="icon icon-star star-red"></span>' 
+                                    +'<i>5</i>' 
+                                    +'<span class="iconfont icon-fabulous"></span>' 
+                                    +'<i>0</i>' 
+                                +'</div>'
+                            +'</div>'
+                        +'</a>'
+                    +'</li>';
+         }
+         return html
+      }
+      // 添加新条目
+      function addItems(number) {
+        var html = getData(number)
+        oParent.find('.list-container').append(html);
+        return html;
+      }
+      // 更新新条目
+      function upDataItems(number) {
+        var html = getData(number)
+        oParent.find('.list-container').html(html);
+      }
+      $(document).on('infinite','#'+tabId, function infinite(e) {
+        e.stopPropagation();
+          // 如果正在加载，则退出
+          if (loading) return;
+        // 设置flag
+        loading = true;
+        pageNum++;
+        // 模拟1s的加载过程
+        setTimeout(function() {
+          if (pageNum > maxNum) {
+            // 加载完毕，则注销无限加载事件，以防不必要的加载:$.detachInfiniteScroll($('.infinite-scroll').eq(tabIndex));多个无线滚动请自行根据自己代码逻辑判断注销时机
+            oParent.find('.infinite-scroll-preloader').eq(0).hide();
+            return;
+          }
+          addItems(pageNum);
+          // 重置加载flag
+          loading = false;
+          $.refreshScroller();
+        }, 1000);
+      });
+
+      // 添加'refresh'监听器
+      $(document).on('refresh','#'+tabId,function(e) {
+          e.stopPropagation();
+          e.preventDefault()
+            // 模拟2s的加载过程
+            setTimeout(function() {
+                pageNum=1
+                upDataItems(pageNum);
+                // 加载完毕需要重置刷新
+                $.pullToRefreshDone('#'+tabId+' .pull-to-refresh-content');
+                // 加载完毕需要重置加载
+                oParent.find('.infinite-scroll-preloader').eq(0).show();
+                loading = false;
+                $.refreshScroller();
+            }, 2000);
+            return false;
+        });
+
+  };
+  
+ 
+
+  $.init();
+});
+    </script>
+  </body>
+</html>

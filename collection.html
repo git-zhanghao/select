@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>个人收藏</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./msui/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+	<link rel="stylesheet" href="css/l_style.css">
+    <script src="js/common.js"></script>
+	
+	
+
+  </head>
+  <body >
+        <div class="page-group">
+           <div class="page">
+              <!-- 头部 -->
+                <header class="bar bar-nav">
+                    <button class="button button-link button-nav pull-left">
+                        <a href="" class="icon icon-left header-left"></a>
+                    </button>
+                    <a href="javascript:;" class="button button-link button-nav pull-right header-right">全员学习</a>
+                    <h1 class="title header-title">个人收藏</h1>
+                </header>
+              
+              <div class="collection collection-content" >
+                <div class="bar bar-nav buttons-tab collection-tab" id="buttonsTab" >
+                  <a href="#tab1" class="tab-link active button">文章</a>
+                  <a href="#tab2" class="tab-link button">视频</a>
+                </div>
+                <!-- style样式不能动影响刷新 -->
+                <div style="position: absolute;top: 2.2rem;right: 0;bottom: 0;left: 0;overflow: hidden;" >
+                    <div class="tabs" id="tabs" >
+                        <div id="tab1" class="tab content infinite-scroll pull-to-refresh-content infinite-scroll-bottom active" >
+                                <div class="pull-to-refresh-layer">
+                                    <div class="preloader"></div>
+                                    <div class="pull-to-refresh-arrow"></div>
+                                </div>
+                                <div class="list-block" style="margin:0 auto;">
+                                    <ul class="list-container">
+                                    </ul>
+                                </div>
+                                <div class="infinite-scroll-preloader">
+                                    <div class="preloader">
+                                    </div>
+                                </div>
+                            </div>
+                        <div id="tab2" class="tab content infinite-scroll pull-to-refresh-content infinite-scroll-bottom">
+                            <div class="pull-to-refresh-layer">
+                                <div class="preloader"></div>
+                                <div class="pull-to-refresh-arrow"></div>
+                            </div>
+                            <div class="list-block" style="margin:0 auto;">
+                                <ul class="list-container">
+                                </ul>
+                            </div>
+                    
+                            <div class="infinite-scroll-preloader">
+                            <div class="preloader">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script> -->
+    <script type='text/javascript' src='js/sm.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+	 <script>
+		
+    </script>
+    <script>
+$(function() {
+    var buttonsTab = $('#buttonsTab');
+    var currentInx =0// $('#buttonsTab .active').index() || 0;
+    var tabs = $('#tabs').children();
+    // 点击切换
+    buttonsTab.on('click','a',function(){
+        var inx = $(this).index();
+        pulling({
+            tabId: 'tab'+(inx+1)
+        }); 
+    })
+    // 上拉加载
+    pulling({
+        tabId: 'tab'+(currentInx+1)
+    });
+
+    function pulling(obj) {
+        var tabId = obj.tabId;
+        var oParent = $('#'+tabId);
+        var oPar = document.getElementById(tabId);
+        //绑定过就不再绑定事件了
+        if(oPar.flag){
+            return ;
+        }
+        oPar.flag = true;
+
+        //多个标签页下的无限滚动
+        var loading = false;
+      
+      var pageNum = 1;
+      // 最多可加载多少页
+      var maxNum = 0;
+
+      addItems(pageNum) // 初始化第一页数据
+      // 获取数据
+      function getData(number){
+          //请求后获取总共多少页,用同步
+          maxNum = 4;
+            // 生成新条目的HTML
+            var html = '';
+            // 加载后的数据得超过一屏幕，不然就没有加载，建议一页15条以上数据
+            for (var i = 0; i < 13; i++) {
+            html += '<li class="item-content">'
+                        +'<a class="text-link" href="articleDetails.html" external>'
+                                +'<h6>'+number+'页，文章强调，推动长江经济带发展是文章强调，推动长江经济带发展</h6>'
+                                +'<div class="item-title">收藏时间：2019-09-0'+i+'</div>'
+						+'</a>'
+                        +'<span class="icon icon-star"></span>'
+                        +'<a href="articleDetails.html" class="icon icon-right"></a>'
+                        
+                    +'</li>';
+         }
+         /* if(tabId==='tab1'){
+            // 文章
+         }else if(tabId==='tab2'){
+            // 视频
+         } */
+         return html
+      }
+      // 添加新条目
+      function addItems(number) {
+        var html = getData(number)
+        oParent.find('.list-container').append(html);
+      }
+      // 更新新条目
+      function upDataItems(number) {
+        var html = getData(number)
+        oParent.find('.list-container').html(html);
+      }
+      $(document).on('infinite','#'+tabId,infinite);
+      function infinite(e) {
+        e.stopPropagation();
+          // 如果正在加载，则退出
+          if (loading) return;
+        // 设置flag
+        loading = true;
+        pageNum++;
+        // 模拟1s的加载过程
+        setTimeout(function() {
+          if (pageNum > maxNum) {
+            // 加载完毕，则注销无限加载事件，以防不必要的加载:$.detachInfiniteScroll($('.infinite-scroll').eq(tabIndex));多个无线滚动请自行根据自己代码逻辑判断注销时机
+            oParent.find('.infinite-scroll-preloader').eq(0).hide();
+            return;
+          }
+          addItems(pageNum);
+          // 重置加载flag
+          loading = false;
+          $.refreshScroller();
+        }, 1000);
+      };
+
+      // 添加'refresh'监听器
+      $(document).on('refresh','#'+tabId,function(e) {
+          e.stopPropagation();
+          e.preventDefault()
+            // 模拟2s的加载过程
+            setTimeout(function() {
+                pageNum=1
+                upDataItems(pageNum);
+                // 加载完毕需要重置刷新
+                $.pullToRefreshDone('#'+tabId+' .pull-to-refresh-content');
+                // 加载完毕需要重置加载
+                oParent.find('.infinite-scroll-preloader').eq(0).show();
+                loading = false;
+                $.refreshScroller();
+            }, 2000);
+            return false;
+        });
+
+  };
+  
+ 
+
+  $.init();
+  
+  //收藏按钮
+  $('.list-container').on('click','.icon-star',function(){
+	  if($(this).hasClass('active')){
+	  	$(this).removeClass('active');
+	  }else{
+	  	$(this).addClass('active');
+	  }
+  });
+  
+});
+    </script>
+  </body>
+</html>

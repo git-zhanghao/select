@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>注册</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./msui/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+	<link rel="stylesheet" href="css/z_style.css">
+	<script src="js/common.js"></script>
+	
+	<style>
+		.register-wrap {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+		.user-photo {
+		  display: flex;
+		  justify-content: center;
+		  margin-top: 0.84rem;
+		  margin-bottom: 1.36rem;
+		  text-align: center;
+		}
+		.user-photo .upload-photo {
+		  position: relative;
+		}
+		.user-photo .upload-photo input {
+		  opacity: 0;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  width: 3.44rem;
+		  height: 3.44rem;
+		  margin-left: -1.72rem;
+		  margin-top: -1.72rem;
+		  border: none;
+		}
+		.user-photo .upload-photo img {
+		  width: 3.44rem;
+		  height: 3.44rem;
+		  border-radius: 50%;
+		  margin-right: 0.5rem;
+		  overflow: hidden;
+		}
+		.user-photo span {
+		  font-size: 0.72rem;
+		  color: #333;
+		  line-height: 3.44rem;
+		}
+		.register-wrap .register-mod .form-register {
+			width: 100%;
+			padding: 0 1.2rem;
+			background: #fff;
+			border-bottom: #f0f0f0 solid .48rem;
+			padding-bottom: 1rem;
+		}
+		.register-wrap .register-mod .form-register .input-group {
+			position: relative;
+			height: auto;
+			line-height: 1.72rem;
+			display: inherit;
+			justify-content: inherit;
+			line-height: 1.72rem;
+			border-bottom: 1px solid #D8D8D8;
+			font-size: 0.64rem;
+		}
+		.inp-error {
+			border-bottom: 1px solid red !important;
+		}
+		.register-wrap .register-mod .form-register .input-group .input-show {
+			display: flex;
+			justify-content: space-between;
+		}
+		.register-wrap .register-mod .form-register .input-group .input-show .select{
+			flex: 1;
+			text-align: right;
+		}
+		.register-wrap .register-mod .form-register .input-group .input-show .select input {
+			width: 100%;
+			height: 1.44rem;
+			line-height: 1.44rem;
+			padding-right: 1rem;
+			background: transparent;
+			border: none;
+			position: relative;
+			z-index: 123;
+		}
+		.register-wrap .register-mod .form-register .input-group .input-show .select .icon-sel {
+			position: absolute;
+			right: 0;
+			top: .1rem;
+			color: #6f7478;
+		}
+		.register-wrap .register-mod .form-register .input-group label {
+			width: 3rem;
+			color: #333;
+			font-weight: normal;
+		}
+		.register-wrap .register-mod .form-register .input-group input {
+			flex: 1;
+			text-align: right;
+			color: #909090;
+			border: none;
+		}
+		.error-tip {
+			font-size: 0.48rem;
+			color: red;
+			text-align: right;
+			margin-top: -0.8rem;
+			display: none;
+		}
+		
+		.picker-modal .picker-modal-inner{
+			width: 100%;
+		}
+		.picker-item{
+			height: 1.6rem !important;
+			line-height: 1.6rem !important;
+			font-size: .72rem !important;
+		}
+		.picker-center-highlight{
+			height: 1.6rem;
+			line-height: 1.6rem;
+			margin-top: -0.8rem;
+		}
+		.picker-center-highlight:after{
+			height: .1rem;
+		}
+		.picker-center-highlight:before{
+			height: .1rem;
+		}
+	</style>
+
+  </head>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+			<!-- 头部 -->
+            <header class="bar bar-nav">
+                <button class="button button-link button-nav pull-left">
+                    <a href="shoppingMall.html" class="icon icon-left header-left"></a>
+                </button>
+				<h1 class="title header-title">注册</h1>
+            </header>
+			
+            <!-- 内容 -->
+			<div class="content">
+				<div class="register-wrap">
+					<div class="register-mod">
+						<div class="user-photo">
+							<a href="javascript:;" class="upload-photo">
+								<input type="file" accept="image/*" size="30" class="upload-img">
+								<img src="images/img02.jpeg" id="headPic">
+							</a>
+							<span>修改头像</span>
+						</div>
+						<!--<form action="">-->
+							<div class="form-register">
+								<div class="input-group inp-error" id="fullName_div">
+									<div class="input-show">
+										<label for="fullName">真实姓名</label>
+										<input id="fullName" type="text" placeholder="请输入真实姓名" oninput="javascript:$('#fullName_error').css('display','none');" maxlength="10">
+									</div>
+									<div class="error-tip" id="fullName_error">姓名必填</div>
+								</div>
+								<div class="input-group" id="jobNumber_div">
+									<div class="input-show">
+										<label for="jobNumber">员工工号</label>
+										<input id="jobNumber" type="text" placeholder="请输入员工工号" oninput="javascript:$('#jobNumber_error').css('display','none');">
+									</div>
+									<div class="error-tip" id="jobNumber_error"></div>
+								</div>
+								<div class="input-group org inp-error" id="org_div">
+									<div class="input-show">
+										<label for="org">公司机构</label>
+										<div class="select">
+											<input type="text" placeholder="选择公司机构" id="picker-gsjg" readonly="">
+											<span class="icon icon-caret icon-sel"></span>
+										</div>
+									</div>
+									<div class="error-tip" id="org_error">公司机构必选</div>
+								</div>
+								<div class="input-group qiye inp-error" id="qiye_div">
+									<div class="input-show">
+										<label for="qiye">企业机构</label>
+										<div class="select">
+											<input type="text" placeholder="选择企业机构" id="picker-qyjg" readonly="">
+											<span class="icon icon-caret icon-sel"></span>
+										</div>
+									</div>
+									<div class="error-tip" id="qiye_error">企业机构必选</div>
+								</div>
+								<div class="input-group pro inp-error" id="pro_div">
+									<div class="input-show">
+										<label for="pro">专业工种</label>
+										<div class="select">
+											<input type="text" placeholder="选择专业工种" id="picker-gz" readonly="">
+											<span class="icon icon-caret icon-sel"></span>
+										</div>
+									</div>
+									<div class="error-tip" id="pro_error">专业工种必选</div>
+								</div>
+							</div>
+				
+							<div class="form-register">
+								<div class="input-group">
+									<div class="input-show">
+										<label for="sex">性别</label>
+										<input id="sex" type="hidden" value="1">
+										<div class="select">
+											<input type="text" placeholder="性别" id="picker-sex" readonly="">
+											<span class="icon icon-caret icon-sel"></span>
+										</div>
+									</div>
+									<div class="error-tip"></div>
+								</div>
+								<div class="input-group inp-error" id="age_div">
+									<div class="input-show">
+										<label for="age">出生日期</label>
+										<input type="text" data-toggle='date' placeholder="请选择出生日期" readonly="" />
+									</div>
+									<div class="error-tip" id="age_error">出生日期必填</div>
+								</div>
+								<div class="input-group selectdown inp-error" id="jobage_div">
+									<div class="input-show">
+										<label for="jobage">入职日期</label>
+										<input type="text" data-toggle='date' placeholder="请选择入职日期" readonly="" />
+									</div>
+									<div class="error-tip" id="jobage_error">入职日期必填</div>
+								</div>
+								<div class="input-group edu inp-error" id="edu_div">
+									<div class="input-show">
+										<label for="edu">学历</label>
+										<div class="select">
+											<input type="text" placeholder="选择学历" id="picker-xl" readonly="">
+											<span class="icon icon-caret icon-sel"></span>
+										</div>
+									</div>
+									<div class="error-tip" id="edu_error">学历必选</div>
+								</div>
+								<!--<div class="input-group role">-->
+									<!--<label for="role">用户身份</label>-->
+									<!--<div class="select">-->
+										<!--<select id="role" class="selectpicker show-tick form-control" data-dropup-auto="false" data-live-search="true" title="选择身份">-->
+										<!--</select>-->
+									<!--</div>-->
+								<!--</div>-->
+							</div>
+				
+							<div class="form-register" style="padding-bottom: 1rem;">
+								<div class="input-group inp-error" id="phone_div">
+									<div class="input-show">
+										<label for="phone">手机</label>
+										<input id="phone" type="text" maxlength="11" placeholder="请输入手机号" oninput="javascript:$('#phone_error').css('display','none');" min="0" onkeyup="this.value=this.value.replace(/\D/g,'')">
+									</div>
+									<div class="error-tip" id="phone_error"></div>
+								</div>
+								<div class="input-group inp-error" id="email_div">
+									<div class="input-show">
+										<label for="email">邮箱</label>
+										<input id="email" type="text" placeholder="请输入邮箱号" oninput="javascript:$('#email_error').css('display','none');">
+									</div>
+									<div class="error-tip" id="email_error"></div>
+								</div>
+								<div class="input-group inp-error" id="username_div">
+									<div class="input-show">
+										<label for="username">账号</label>
+										<input id="username" type="text" minlength="4" maxlength="16" placeholder="账户不能小于4位字符" oninput="javascript:$('#username_error').css('display','none');">
+									</div>
+									<div class="error-tip" id="username_error"></div>
+								</div>
+								<div class="input-group inp-error" id="pwd_div">
+									<div class="input-show">
+										<label for="pwd">密码</label>
+										<input id="pwd" type="password" minlength="4" maxlength="20" placeholder="密码不能小于4位字符" oninput="javascript:$('#pwd_error').css('display','none');">
+									</div>
+									<div class="error-tip" id="pwd_error"></div>
+								</div>
+								<div class="input-group inp-error" id="conPwd_div">
+									<div class="input-show">
+										<label for="conPwd">确认密码</label>
+										<input id="conPwd" type="password" minlength="4" maxlength="20" placeholder="再次输入密码" oninput="javascript:$('#conPwd_error').css('display','none');">
+									</div>
+									<div class="error-tip" id="conPwd_error"></div>
+								</div>
+								<p><a href="#" class="button button-fill">确定</a></p>
+								<!-- <p><a href="#" class="button button-fill button-danger">审核中</a></p> -->
+							</div>
+						<!--</form>-->
+					</div>
+				</div>
+			</div>
+
+        </div>
+    </div>
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+	
+	 <script>
+		 $.init();
+		 
+		 //公司机构
+		$("#picker-gsjg").picker({
+		  toolbarTemplate: '<header class="bar bar-nav">\
+		  <button class="button button-link pull-right close-picker">确定</button>\
+		  <h1 class="title">选择公司机构</h1>\
+		  </header>',
+		  value: '请选择公司机构',
+		  cols: [
+			{
+			  textAlign: 'center',
+			  values: ['iPhone 4', 'iPhone 4S', 'iPhone 5', 'iPhone 5S', 'iPhone 6', 'iPhone 6 Plus', 'iPad 2', 'iPad Retina', 'iPad Air', 'iPad mini', 'iPad mini 2', 'iPad mini 3']
+			}
+		  ]
+		});
+		
+		 //企业机构
+		$("#picker-qyjg").picker({
+		  toolbarTemplate: '<header class="bar bar-nav">\
+		  <button class="button button-link pull-right close-picker">确定</button>\
+		  <h1 class="title">选择企业机构</h1>\
+		  </header>',
+		  value: '请选择企业机构',
+		  cols: [
+			{
+			  textAlign: 'center',
+			  values: ['iPhone 4', 'iPhone 4S', 'iPhone 5', 'iPhone 5S', 'iPhone 6', 'iPhone 6 Plus', 'iPad 2', 'iPad Retina', 'iPad Air', 'iPad mini', 'iPad mini 2', 'iPad mini 3']
+			}
+		  ]
+		});
+		
+		 //专业工种
+		$("#picker-gz").picker({
+		  toolbarTemplate: '<header class="bar bar-nav">\
+		  <button class="button button-link pull-right close-picker">确定</button>\
+		  <h1 class="title">选择专业工种</h1>\
+		  </header>',
+		  value: '请选择专业工种',
+		  cols: [
+			{
+			  textAlign: 'center',
+			  values: ['iPhone 4', 'iPhone 4S', 'iPhone 5', 'iPhone 5S', 'iPhone 6', 'iPhone 6 Plus', 'iPad 2', 'iPad Retina', 'iPad Air', 'iPad mini', 'iPad mini 2', 'iPad mini 3']
+			}
+		  ]
+		});
+		
+		 //性别
+		$("#picker-sex").picker({
+		  toolbarTemplate: '<header class="bar bar-nav">\
+		  <button class="button button-link pull-right close-picker">确定</button>\
+		  <h1 class="title">选择性别</h1>\
+		  </header>',
+		  value: '请选择性别',
+		  cols: [
+			{
+			  textAlign: 'center',
+			  values: ['男', '女']
+			}
+		  ]
+		});
+		
+		 //专业工种
+		$("#picker-xl").picker({
+		  toolbarTemplate: '<header class="bar bar-nav">\
+		  <button class="button button-link pull-right close-picker">确定</button>\
+		  <h1 class="title">选择学历</h1>\
+		  </header>',
+		  value: '请选择学历',
+		  cols: [
+			{
+			  textAlign: 'center',
+			  values: ['iPhone 4', 'iPhone 4S', 'iPhone 5', 'iPhone 5S', 'iPhone 6', 'iPhone 6 Plus', 'iPad 2', 'iPad Retina', 'iPad Air', 'iPad mini', 'iPad mini 2', 'iPad mini 3']
+			}
+		  ]
+		});
+		
+	</script>
+  </body>
+</html>

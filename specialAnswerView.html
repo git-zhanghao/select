@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>专项答题错误解析</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./msui/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+	<link rel="stylesheet" href="css/z_style.css">
+	<script src="js/common.js"></script>
+
+  </head>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+			<!-- 头部 -->
+            <header class="bar bar-nav">
+                <button class="button button-link button-nav pull-left">
+                    <a href="shoppingMall.html" class="icon icon-left header-left"></a>
+                </button>
+				<a href="JavaScript:;" class="button button-link button-nav pull-right header-right">下一题</a>
+            </header>
+			
+            <!-- 内容 -->
+			<div class="content">
+				<div class="answer-area padding-0">
+					<div class="answer-bg"></div>
+					<div class="subject-area">
+						<div class="subject-show margin-t2rem">
+							
+							<div class="countdow-bar">
+								<i class="min">30</i>
+								:
+								<i class="seconds">00</i>
+							</div>
+							
+							<div class="card margin-0">
+								<div class="card-header">
+									<header>
+										<h5>单选题</h5>
+										<span>1/5</span>
+									</header>
+								</div>
+								<div class="card-content">
+									<div class="card-content-inner">
+										<section class="padding-0">
+											<p>重整液收主要受反应压力、反应温度、空速、氢油比、原料性质、催化剂的影响；在保证重整油辛烷值的前提下应该从以下几个方面考虑来增加重整液收？</p>
+											<div class="column-select">
+												<label class="radio-inline">
+													<input type="radio" value="option1" id="option1" name="option">
+													<span>A.7月11日</span>
+												</label>
+												<label class="radio-inline error">
+													<input type="radio" value="option1" id="option1" name="option" class="error">
+													<span>B.7月11日</span>
+												</label>
+												<label class="radio-inline">
+													<input type="radio" value="option1" id="option1" name="option">
+													<span>C.7月11日</span>
+												</label>
+												<label class="radio-inline">
+													<input type="radio" value="option1" id="option1" name="option">
+													<span>D.7月11日</span>
+												</label>
+											</div>
+										</section>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="card result-show" style="display: block;">
+							<div class="card-header">
+								<h5>答案解析</h5>
+							</div>
+							<div class="card-content">
+								<h6>正确答案：A</h6>
+								<div class="card-content-inner">
+									更新催化剂。对产品收率影响最大的是催化剂，高性能的催化剂具有较好的活性、<strong class="error">B.7月11日</strong>选择性和稳定性，可以提高重整生成油和氢气的产率，因此催化剂的更新换代对提高重整装置的经济效益具有重要意义。
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+
+        </div>
+    </div>
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+	
+	 <script>
+		 $.init();
+		 
+		 //查看解析
+		 $('.subject-area').on('click','.result-tip',function(){
+			 $('.result-show').show();
+			 $(this).hide();
+		 });
+		 
+		 
+	</script>
+  </body>
+</html>

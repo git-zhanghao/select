@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>积分明细</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./msui/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+	<link rel="stylesheet" href="css/l_style.css">
+	<script src="js/common.js"></script>
+	
+	<style>
+		/* .integral-details .integral-list {
+		    width: 100%;
+		    position: relative;
+		    height: 7rem;
+		} */
+		
+	</style>
+
+  </head>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+			<!-- 头部 -->
+            <header class="bar bar-nav">
+                <button class="button button-link button-nav pull-left">
+                    <a href="learningStrategy.html" class="icon icon-left header-left"></a>
+                </button>
+                <h1 class="title header-title">积分明细</h1>
+            </header>
+			
+            <!-- 内容 -->
+            <div class="content integral-details">
+               <div class="integral-list" id="integralList">
+                   <ul id="timeLine">
+                       <li>
+                           <h6>09.21</h6>
+                           <p>
+                                <span style="height:20%"><i >1分</i></span>
+                            </p>
+                       </li>
+                       <li>
+                            <h6>09.22</h6>
+                            <p>
+                                 <span style="height:20%"><i >2分</i></span>
+                             </p>
+                        </li>
+                        <li>
+                           <h6>09.23</h6>
+                           <p>
+                                <span style="height:20%"><i >3分</i></span>
+                            </p>
+                       </li>
+                       <li>
+                            <h6>09.24</h6>
+                            <p>
+                                 <span style="height:20%"><i >4分</i></span>
+                             </p>
+                        </li>
+                        <li>
+                           <h6>09.25</h6>
+                           <p>
+                                <span style="height:20%"><i >5分</i></span>
+                            </p>
+                       </li>
+                       <li>
+                            <h6>09.26</h6>
+                            <p>
+                                 <span style="height:20%"><i >6分</i></span>
+                             </p>
+                        </li>
+                        <li>
+                            <h6>09.27</h6>
+                            <p>
+                                <span style="height:20%"><i >7分</i></span>
+                            </p>
+                        </li>
+                        <li>
+                            <h6>09.28</h6>
+                            <p>
+                                <span style="height:20%"><i >8分</i></span>
+                            </p>
+                        </li>
+                        <li>
+                            <h6>09.29</h6>
+                            <p>
+                                <span style="height:20%"><i >9分</i></span>
+                            </p>
+                        </li>
+						
+						<li>
+						    <h6>09.29</h6>
+						    <p>
+						        <span style="height:20%"><i >9分</i></span>
+						    </p>
+						</li>
+
+                       <li class="active">
+                            <h6>今日</h6>
+                            <p>
+                                <span style="height:50%"><i >0分</i></span>
+                            </p>
+                        </li>
+                   </ul>
+               </div>
+               <div class="active-info">
+                   <p>当前积分：<b id="currentGrade">0</b></p>
+                   <span id="currentDate">2019.09.30</span>
+               </div>
+               <div class="integral-time">
+                   <ul>
+                       <li>
+                           <div>
+                               <p>10:46</p>
+                               <span>每日答题</span>
+                            </div>
+                            <i><b>+1</b>分</i>
+                       </li>
+                       <li>
+                            <div>
+                                <p>10:46</p>
+                                <span>登录</span>
+                             </div>
+                             <i><b>+1</b>分</i>
+                        </li>
+                   </ul>
+               </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+	
+	 <script>
+         $.init();
+         $(function(){
+            $('#integralList').on('click','ul li',function(){
+                $(this).addClass('active').siblings().removeClass('active')
+                var date = $(this).find('h6').html()
+                $('#currentDate').html(date)
+            })
+			
+			//定位到当前日期
+			var allWidth = $('#integralList ul li').eq(0).width()*$('#integralList ul li').length;
+			var screenWidth = $('#integralList ul').width();
+			console.log(allWidth,screenWidth)
+			document.getElementById('timeLine').scrollLeft=allWidth - screenWidth;
+         })
+	</script>
+  </body>
+</html>

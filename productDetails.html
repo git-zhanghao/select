@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>商品详情</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./msui/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/z_style.css">
+	<script src="js/swiper.min.js"></script>
+	<script src="js/common.js"></script>
+	
+	
+  </head>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+			<!-- 头部 -->
+            <header class="bar bar-nav">
+                <button class="button button-link button-nav pull-left">
+                    <a href="shoppingMall.html" class="icon icon-left header-left"></a>
+                </button>
+                <h1 class="title header-title">商品详情</h1>
+            </header>
+			
+            <!-- 内容 -->
+		    <div class="content" style="padding-bottom: 3rem;">
+				<!-- Swiper -->
+				<div class="swiper-container swiper-h10rem">
+					<div class="swiper-wrapper">
+					  <div class="swiper-slide" style="background: url(images/img.jpeg) center no-repeat; background-size: 100%;"></div>
+					  <div class="swiper-slide" style="background: url(images/img.jpeg) center no-repeat; background-size: 100%;"></div>
+					  <div class="swiper-slide" style="background: url(images/img.jpeg) center no-repeat; background-size: 100%;"></div>
+					</div>
+					<!-- Add Pagination -->
+					<div class="swiper-pagination"></div>
+				</div>
+				
+				<div class="goods-info">
+					<div>新一代洗发水2KG</div>
+					<p>
+						<span class="current-price">2000积分</span>
+						<span>积分：<i>1999</i></span>
+					</p>
+				</div>
+				
+				<div class="goods-show">
+					<img src="images/img.jpeg" >
+					<p>新一代洗发水好好好好好好好好好好好好好好好好好好好好好好</p>
+				</div>
+		    </div>
+			
+			<nav class="bar bar-tab change-bar">
+				<span class="icon icon-star"></span>
+				<button class="change-btn">599分去兑换</button>
+				<!-- <button class="change-btn">599分去兑换</button>w未兑换的样式 -->
+			</nav>
+			
+			
+
+        </div>
+    </div>
+	
+	<!-- 商品弹出 -->
+	<div class="pop-show">
+		<div class="pop-info">
+			<img src="images/img.jpeg" alt="">
+			<div class="control-info">
+				<h5>积分：599分</h5>
+				<p>库存：1200袋</p>
+				<div>兑换数量：<i class="sub">-</i><span id="num">0</span><i class="add">+</i></div>
+			</div>
+		</div>
+		<p><a href="#" class="button sure-btn">确定</a></p>
+		<button class="close-btn"></button>
+	</div>
+	
+	<!-- 兑换提示 -->
+	<div class="change-tip">兑换成功</div>
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script> -->
+	<script src="js/fx.js"></script>
+	 <script>
+		 $.init();
+		 	
+		 var swiper = new Swiper('.swiper-container', {
+		   pagination: {
+		 	el: '.swiper-pagination',
+		 	type: 'fraction',
+		   }
+		 });
+		 
+		 //收藏
+		 $('.change-bar').on('click','.icon-star',function(){
+			 if($(this).hasClass('active')){
+				 $(this).removeClass('active');
+			 }else{
+				 $(this).addClass('active');
+			 }
+		 });
+		 
+		 //兑换
+		 $('.change-bar').on('click','.change-btn',function(){
+			 $('.pop-show').animate({bottom : 0});
+		 });
+		 //关闭
+		 $('.pop-show').on('click','.close-btn',function(){
+			 $('.pop-show').animate({bottom : '-7.2rem'});
+		 });
+		 //确定
+		 $('.pop-show').on('click','.sure-btn',function(){
+		 	$('.pop-show').animate({bottom : '-7.2rem'});
+			
+			$('.change-tip').show();
+			var timer = setTimeout(function(){
+				$('.change-tip').hide();
+			},1000); 
+			
+		 });
+		 //加法
+		 var n = $('#num').html();
+		 $('.pop-show').on('click','.add',function(){
+			 n++;
+		 	$('#num').html(n);
+		 });
+		 //减法
+		 $('.pop-show').on('click','.sub',function(){
+			 n--;
+			 if(n == -1){
+				 n = 0;
+				 return;
+			 }
+		 	$('#num').html(n);
+		 });
+	</script>
+  </body>
+</html>

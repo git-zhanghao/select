@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>题目分享</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./msui/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+	<link rel="stylesheet" href="css/z_style.css">
+	<script src="js/common.js"></script>
+	<style>
+		.picker-modal .picker-modal-inner{
+			width: 100%;
+		}
+		.picker-item{
+			height: 1.6rem !important;
+			line-height: 1.6rem !important;
+			font-size: .72rem !important;
+		}
+		.picker-center-highlight{
+			height: 1.6rem;
+			line-height: 1.6rem;
+			margin-top: -0.8rem;
+		}
+		.picker-center-highlight:after{
+			height: .1rem;
+		}
+		.picker-center-highlight:before{
+			height: .1rem;
+		}
+	</style>
+
+  </head>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+			<!-- 头部 -->
+            <header class="bar bar-nav">
+                <button class="button button-link button-nav pull-left">
+                    <a href="shoppingMall.html" class="icon icon-left header-left"></a>
+                </button>
+                <h1 class="title header-title">题目分享</h1>
+            </header>
+			
+            <!-- 内容 -->
+			<div class="content">
+				<form class="form-subject" action="">
+					<div class="select-bar">
+						<label for="">专业工种：</label>
+						<div class="select">
+							<input type="text" placeholder="选择工种" id="picker-work" readonly="">
+							<span class="icon icon-caret icon-sel"></span>
+						</div>
+					</div>
+					
+					<div class="select-bar">
+						<label for="">题库：</label>
+						<div class="select">
+							<input type="text" placeholder="选择题库" id="picker-bank" readonly="">
+							<span class="icon icon-caret icon-sel"></span>
+						</div>
+					</div>
+					
+					<div class="line-bar">
+						<label class="lab" for="">题型：</label>
+						<div class="line-select">
+							<label class="radio-inline">
+								<input type="radio" value="option1" id="option1" name="option">
+								<span>单选</span>
+							</label>
+							<label class="radio-inline">
+								<input type="radio" value="option1" id="option1" name="option">
+								<span>多选</span>
+							</label>
+							<label class="radio-inline">
+								<input type="radio" value="option1" id="option1" name="option">
+								<span>判断</span>
+							</label>
+						</div>
+					</div>
+					
+					<div class="select-bar">
+						<label for="">题干：</label>
+						<textarea name="" id="" cols="30" rows="10">输入题干内容...</textarea>
+					</div>
+					
+					<div class="select-bar">
+						<label for="">答案：</label>
+						<div class="column-select">
+							<!-- 单选 -->
+							<!-- <label class="radio-inline">
+								<input type="radio" value="option1" id="option1" name="option">
+								<span>A</span>
+								<input type="text" class="inp-txt" placeholder="请输入可选答案">
+							</label>
+							<label class="radio-inline">
+								<input type="radio" value="option1" id="option1" name="option">
+								<span>B</span>
+								<input type="text" class="inp-txt" placeholder="请输入可选答案">
+							</label>
+							<label class="radio-inline">
+								<input type="radio" value="option1" id="option1" name="option">
+								<span>C</span>
+								<input type="text" class="inp-txt" placeholder="请输入可选答案">
+							</label>
+							<label class="radio-inline">
+								<input type="radio" value="option1" id="option1" name="option">
+								<span>D</span>
+								<input type="text" class="inp-txt" placeholder="请输入可选答案">
+							</label> -->
+							<!-- 多选 -->
+							<label class="radio-inline">
+								<input type="checkbox" value="option1" id="option1" name="option">
+								<span>A</span>
+								<input type="text" class="inp-txt" placeholder="请输入可选答案">
+							</label>
+							<label class="radio-inline">
+								<input type="checkbox" value="option1" id="option1" name="option">
+								<span>B</span>
+								<input type="text" class="inp-txt" placeholder="请输入可选答案">
+							</label>
+							<label class="radio-inline">
+								<input type="checkbox" value="option1" id="option1" name="option">
+								<span>C</span>
+								<input type="text" class="inp-txt" placeholder="请输入可选答案">
+							</label>
+							<label class="radio-inline">
+								<input type="checkbox" value="option1" id="option1" name="option">
+								<span>D</span>
+								<input type="text" class="inp-txt" placeholder="请输入可选答案">
+							</label>
+						</div>
+					</div>
+					
+					<div class="select-bar">
+						<label for="">答案：</label>
+						<div class="column-select">
+							<ul class="judgement-mod">
+								<li>
+									<label class="radio-inline">
+									  <input type="radio" value="option1" id="option1" name="option"> 
+									  <span class="icon-error"></span>
+									</label>
+								</li>
+								<li>
+									<label class="radio-inline">
+									  <input type="radio" value="option1" id="option1" name="option"> 
+									  <span class="icon-right"></span>
+									</label>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="select-bar">
+						<label for="">解析：</label>
+						<textarea name="" id="" cols="30" rows="10">输入解析内容...</textarea>
+					</div>
+					
+					<div class="select-bar">
+						<label for="">分值：</label>
+						<div class="select">
+							<input type="text" placeholder="请输入分值" >
+						</div>
+					</div>
+					
+					<p><a href="#" class="button button-fill">确定</a></p>
+				</form>
+			</div>
+
+        </div>
+    </div>
+	
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+	
+	 <script>
+		 $.init();
+		 
+		 //专业工种
+		$("#picker-work").picker({
+		  toolbarTemplate: '<header class="bar bar-nav bar-h90">\
+		  <button class="button button-link pull-right close-picker">确定</button>\
+		  <h1 class="title font-36">请选择工种</h1>\
+		  </header>',
+		  value: '请选择工种',
+		  cols: [
+			{
+			  textAlign: 'center',
+			  values: ['程序员', '设计师', '插画师', '会计', '工程师', '产品经理']
+			}
+		  ]
+		});
+		
+		 //题库
+		$("#picker-bank").picker({
+		  toolbarTemplate: '<header class="bar bar-nav bar-h90">\
+		  <button class="button button-link pull-right close-picker">确定</button>\
+		  <h1 class="title font-36">请选择题库</h1>\
+		  </header>',
+		  value: '请选择题库',
+		  cols: [
+			{
+			  textAlign: 'center',
+			  values: ['高数', '语文', '英语', '前端', 'java', 'photoshop']
+			}
+		  ]
+		});
+	</script>
+  </body>
+</html>

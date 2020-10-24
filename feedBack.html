@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>我要吐槽</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./msui/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+	<link rel="stylesheet" href="css/z_style.css">
+	<script src="js/common.js"></script>
+
+  </head>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+			<!-- 头部 -->
+            <header class="bar bar-nav">
+                <button class="button button-link button-nav pull-left">
+                    <a href="shoppingMall.html" class="icon icon-left header-left"></a>
+                </button>
+                <h1 class="title header-title">我要吐槽</h1>
+            </header>
+			
+            <!-- 内容 -->
+			<div class="content">
+				<div class="text-area">
+					<textarea rows="" cols="">请写下您的意见或建议</textarea>
+					<div class="upload-mod">
+						<a href="javascript:;" class="upload-photo">
+							<input type="file" accept="image/*" size="30" class="upload-img">
+							<img src="images/icon_upload.png" id="headPic">
+						</a>
+					</div>
+				</div>
+				
+				<div class="choice-area">
+					<h5>请选择反馈类型</h5>
+					<div class="choice-mod">
+						<label class="radio-inline">
+							<input type="checkbox" value="option1" id="option1" name="option">
+							<span>功能吐槽</span>
+						</label>
+						<label class="radio-inline">
+							<input type="checkbox" value="option1" id="option1" name="option">
+							<span>系统故障</span>
+						</label>
+						<label class="radio-inline">
+							<input type="checkbox" value="option1" id="option1" name="option">
+							<span>内容建议</span>
+						</label>
+					</div>
+				</div>
+				
+				<p><a href="#" class="button button-fill button-w80">提交</a></p>
+			</div>
+
+        </div>
+    </div>
+	
+	<!-- 兑换提示 -->
+	<div class="change-tip">提交成功</div>
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+	
+	 <script>
+		 $.init();
+		 
+		 //读取相册照片路径上传图片
+		 $('.upload-mod').on('change','.upload-img',function(event){
+		 	var name = event.target.files[0].name;
+		 	var file = event.target.files[0];
+		 	if (window.FileReader) {
+		 			var reader = new FileReader();
+		 			reader.readAsDataURL(file);
+		 			//监听文件读取结束后事件
+		 		 reader.onloadend = function (e) {
+		 			// $('.upload-photo img').attr("src",e.target.result); //e.target.result就是最后的路径地址
+					$('.upload-mod').prepend('<img src="'+e.target.result+'">');
+		 			 // $('#headPic').attr("src",e.target.result);
+		 		};
+		 	}
+		 });
+		
+		//提交
+		$('.button-fill').on('click',function(){
+			$('.change-tip').show();
+			var timer = setTimeout(function(){
+				$('.change-tip').hide();
+			},1000); 
+		});
+	</script>
+  </body>
+</html>

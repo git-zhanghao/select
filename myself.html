@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>我的</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./msui/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/z_style.css">
+	<script src="js/swiper.min.js"></script>
+	<script src="js/common.js"></script>
+	
+	
+  </head>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+			
+            <!-- 内容 -->
+		    <div class="content">
+				<div class="my-info-bg">
+					<a class="my-btn" href="myselfInfo.html">我的</a>
+					<div class="card my-info">
+						<div class="card-content">
+							<div class="card-content-inner">
+								<img src="images/img.jpeg" >
+								<div class="my-table">
+									<p>姓名：西恩</p>
+									<p>性别：男</p>
+									<p>工种：技术</p>
+									<p>企业：技术公司</p>
+								</div>
+								<div class="integral">
+									<span class="name">积分</span>
+									<span class="num">2999</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="my-apply">
+					<h3>我的应用</h3>
+					<ul class="apply-item">
+						<li>
+							<a href="">
+								<span class="icon icon-app"></span>
+								<span>个人收藏</span>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<span class="icon icon-app"></span>
+								<span>学习攻略</span>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<span class="icon icon-app"></span>
+								<span>积分排名</span>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<span class="icon icon-app"></span>
+								<span>强企商城</span>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<span class="icon icon-app"></span>
+								<span>我要答题</span>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<span class="icon icon-app"></span>
+								<span>题目分享</span>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<span class="icon icon-app"></span>
+								<span>反馈建议</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+		    </div>
+			
+			<nav class="bar bar-tab">
+			  <a class="tab-item external" href="#">
+				<span class="icon icon-home"></span>
+				<span class="tab-label">专业学习</span>
+			  </a>
+			  <a class="tab-item external" href="#">
+				<span class="icon icon-me"></span>
+				<span class="tab-label">视听学习</span>
+			  </a>
+			  <a class="tab-item external" href="#">
+				<span class="icon icon-star"></span>
+				<span class="tab-label">全员学习</span>
+			  </a>
+			  <a class="tab-item external active" href="#">
+				<span class="icon icon-cart"></span>
+				<span class="tab-label">我的</span>
+			  </a>
+			</nav>
+			
+			
+
+        </div>
+    </div>
+	
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script> -->
+	
+	 <script>
+		$.init();
+		//顶部导航菜单
+		var navSwiper = new Swiper('#header', {
+			freeMode: true,
+			slidesPerView: 'auto',
+			freeModeSticky: true,
+		});
+		//轮播图
+		var swiper = new Swiper('.swiper-container', {
+		  pagination: {
+			el: '.swiper-pagination',
+			type: 'bullets',
+		  }
+		});
+	
+	</script>
+  </body>
+</html>

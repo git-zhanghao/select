@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>我的信息</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./msui/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+	<link rel="stylesheet" href="css/z_style.css">
+	<script src="js/common.js"></script>
+
+  </head>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+			<!-- 头部 -->
+            <header class="bar bar-nav">
+                <button class="button button-link button-nav pull-left">
+                    <a href="shoppingMall.html" class="icon icon-left header-left"></a>
+                </button>
+                <h1 class="title header-title">我的信息</h1>
+            </header>
+			
+            <!-- 内容 -->
+			  <div class="content">
+				  <ul class="my-item">
+					  <li>姓名：焦希恩</li>
+					  <li>用户名：焦希恩</li>
+					  <li>工号：000124</li>
+					  <li>工种：000124</li>
+					  <li>学历：000124</li>
+					  <li>性别：男</li>
+					  <li>电话：000124</li>
+				  </ul>
+				  <p><a href="#" class="button exit-btn">退出</a></p>
+			  </div>
+
+        </div>
+    </div>
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+	
+	 <script>
+		 $.init();
+		 //退出
+		 $(document).on('click','.exit-btn', function () {
+			  $.confirm('提示', '焦希恩您要退出系统？', function () {
+				  window.location.href = 'http://www.baidu.com'
+			  });
+		  });
+	</script>
+  </body>
+</html>
